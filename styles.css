@@ -1,12 +1,12 @@
 /* Swedemount Roofing & Siding — site styles */
 
-@font-face{font-family:"Sweden Sans";src:url(../assets/fonts/SwedenSans-Book.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Sweden Sans";src:url(SwedenSans-Book.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
 
-@font-face{font-family:"Sweden Sans";src:url(../assets/fonts/SwedenSans-Bold.woff2) format("woff2");font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:"Sweden Sans";src:url(SwedenSans-Bold.woff2) format("woff2");font-weight:600;font-style:normal;font-display:swap}
 
-@font-face{font-family:"Sweden Sans";src:url(../assets/fonts/SwedenSans-SemiBold.woff2) format("woff2");font-weight:600;font-style:normal;font-display:swap;unicode-range:U+0041-005A,U+0061-007A,U+00C0-00D6,U+00D8-00F6,U+00F8-024F}
+@font-face{font-family:"Sweden Sans";src:url(SwedenSans-SemiBold.woff2) format("woff2");font-weight:600;font-style:normal;font-display:swap;unicode-range:U+0041-005A,U+0061-007A,U+00C0-00D6,U+00D8-00F6,U+00F8-024F}
 
-@font-face{font-family:"Sweden Sans";src:url(../assets/fonts/SwedenSans-Bold.woff2) format("woff2");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"Sweden Sans";src:url(SwedenSans-Bold.woff2) format("woff2");font-weight:700;font-style:normal;font-display:swap}
 h1,h2,h3,dd,blockquote{font-family:"Sweden Sans","Noto Sans","Helvetica Neue",Arial,sans-serif!important}
 @keyframes g-up{from{opacity:0;transform:translate3d(0,96px,0)}to{opacity:1;transform:translate3d(0,0,0)}}
 @keyframes g-exit{to{opacity:0;transform:translate3d(0,-140px,0)}}
