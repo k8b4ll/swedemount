@@ -1,0 +1,66 @@
+/* Swedemount Roofing & Siding — site styles */
+
+@font-face{font-family:"Sweden Sans";src:url(../assets/fonts/SwedenSans-Book.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
+
+@font-face{font-family:"Sweden Sans";src:url(../assets/fonts/SwedenSans-Bold.woff2) format("woff2");font-weight:600;font-style:normal;font-display:swap}
+
+@font-face{font-family:"Sweden Sans";src:url(../assets/fonts/SwedenSans-SemiBold.woff2) format("woff2");font-weight:600;font-style:normal;font-display:swap;unicode-range:U+0041-005A,U+0061-007A,U+00C0-00D6,U+00D8-00F6,U+00F8-024F}
+
+@font-face{font-family:"Sweden Sans";src:url(../assets/fonts/SwedenSans-Bold.woff2) format("woff2");font-weight:700;font-style:normal;font-display:swap}
+h1,h2,h3,dd,blockquote{font-family:"Sweden Sans","Noto Sans","Helvetica Neue",Arial,sans-serif!important}
+@keyframes g-up{from{opacity:0;transform:translate3d(0,96px,0)}to{opacity:1;transform:translate3d(0,0,0)}}
+@keyframes g-exit{to{opacity:0;transform:translate3d(0,-140px,0)}}
+@keyframes g-card-exit{to{transform:scale(.92);border-radius:48px}}
+@keyframes g-rise{from{transform:translateY(105%)}to{transform:none}}
+@keyframes g-in{from{opacity:0;transform:translate3d(0,80px,0) scale(.9)}to{opacity:1;transform:translate3d(0,0,0) scale(1)}}
+@keyframes g-line{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes g-clip{from{clip-path:inset(0 0 100% 0);transform:translateY(28px)}to{clip-path:inset(0 0 -10% 0);transform:none}}
+@keyframes g-photo{from{opacity:0;transform:scale(1.08)}to{opacity:1;transform:scale(1)}}
+.g-photo{animation:g-photo 1.8s cubic-bezier(.2,.75,.15,1) both}
+@keyframes g-zoom{from{opacity:0;transform:scale(1.08) translateY(24px)}to{opacity:.5;transform:none}}
+@keyframes g-marq{to{transform:translateX(-50%)}}
+@keyframes g-drift{from{transform:translateX(-6%)}to{transform:translateX(4%)}}
+.g-mask{display:block;overflow:hidden;padding-bottom:.06em}
+.g-rise{display:block;animation:g-rise 1s cubic-bezier(.2,.75,.15,1) both}
+.g-load{animation:g-up 1s cubic-bezier(.2,.75,.15,1) both}
+.g-d1{animation-delay:.12s}.g-d2{animation-delay:.3s}.g-d3{animation-delay:.48s}
+.g-zoom{animation:g-zoom 1.8s cubic-bezier(.2,.75,.15,1) both}
+.g-marq{animation:g-marq 32s linear infinite}
+@supports (animation-timeline: view()){
+.rv{animation:g-up cubic-bezier(.2,.7,.2,1) both;animation-timeline:view();animation-range:entry 5% cover 38%}
+.rv-s{animation:g-in cubic-bezier(.2,.7,.2,1) both;animation-timeline:view();animation-range:entry 5% cover 42%}
+.rv-line{transform-origin:left center;animation:g-line linear both;animation-timeline:view();animation-range:entry 0% cover 45%}
+.rv-clip{animation:g-clip cubic-bezier(.2,.7,.2,1) both;animation-timeline:view();animation-range:entry 5% cover 36%}
+.rv-drift{animation:g-drift linear both;animation-timeline:view();animation-range:cover}
+.g-exit{animation:g-exit linear both;animation-timeline:view();animation-range:exit 0% exit 100%}
+.g-card-exit{animation:g-card-exit linear both;animation-timeline:view();animation-range:exit 10% exit 100%}
+.tl{view-timeline-name:--sm-sec}
+.band{animation:g-band cubic-bezier(.45,0,.55,1) both;animation-timeline:--sm-sec;animation-range:entry 15% entry 95%}
+.grp{animation:g-up cubic-bezier(.2,.7,.2,1) both;animation-timeline:view();animation-range:entry 10% cover 35%}
+.tl .grp{animation-timeline:--sm-sec;animation-range:entry 30% entry 100%}
+.grp .rv,.grp .rv-s,.grp .rv-clip{animation:none}
+.tl .grp .rv-line{animation-timeline:--sm-sec;animation-range:entry 45% entry 100%}
+}
+.band{position:absolute;left:0;right:0;top:0;height:1040px;pointer-events:none;will-change:transform;transform:translate3d(0,0,0)}
+@supports not (animation-timeline: view()){.band{display:none}}
+@keyframes g-band{from{transform:translate3d(0,0,0)}to{transform:translate3d(0,-1040px,0)}}
+@media (prefers-reduced-motion: reduce){.g-photo,.g-rise,.g-load,.g-zoom,.grp,.rv,.rv-s,.rv-line,.rv-clip,.rv-drift,.g-exit,.g-card-exit{animation:none!important}.band{display:none!important}.g-zoom{opacity:.5}}
+body{margin:0;background:#0E2A21}
+*{box-sizing:border-box}
+a{color:inherit}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid #C3EB4E;outline-offset:3px}
+summary{list-style:none;cursor:pointer}summary::-webkit-details-marker{display:none}
+details[open] .g-plus{transform:rotate(45deg)}
+input,select,button{font:inherit}
+
+/* ---- project carousel ---- */
+.sm-bar{width:40px;height:16px;padding:0;border:0;cursor:pointer;background:linear-gradient(rgba(14,42,33,.3),rgba(14,42,33,.3)) center/100% 1px no-repeat}
+.sm-bar[aria-pressed="true"]{background:linear-gradient(#0E2A21,#0E2A21) center/100% 3px no-repeat}
+#sm-track{display:flex;gap:20px;transition:transform .45s ease}
+@media (prefers-reduced-motion: reduce){#sm-track{transition:none}}
+
+
+/* Phones: keep the header to one row (logo + estimate button) */
+@media (max-width: 760px){
+  header nav[aria-label="Main"]{display:none!important}
+}
