@@ -87,3 +87,15 @@ input,select,button{font:inherit}
   .sm-head > a[href="#g-estimate"]{padding:0 12px!important;font-size:.8125rem!important}
   #sm-menu{width:40px;height:40px;padding:0 10px}
 }
+
+/* ---- estimate form: thank-you transition ---- */
+[hidden]{display:none!important}
+#sm-sent{display:flex}
+#sm-form{transition:opacity .35s ease,transform .35s ease}
+#sm-form.sm-out{opacity:0;transform:translateY(-12px)}
+@keyframes sm-logo-in{0%{opacity:0;transform:scale(.6) rotate(-12deg)}60%{opacity:1;transform:scale(1.08) rotate(2deg)}100%{opacity:1;transform:none}}
+@keyframes sm-fade-up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+#sm-sent.sm-in .sm-sent-logo{animation:sm-logo-in .7s cubic-bezier(.2,.75,.15,1) both;transform-origin:center}
+#sm-sent.sm-in .sm-sent-t{animation:sm-fade-up .6s .25s cubic-bezier(.2,.75,.15,1) both}
+#sm-sent.sm-in .sm-sent-p{animation:sm-fade-up .6s .4s cubic-bezier(.2,.75,.15,1) both}
+@media (prefers-reduced-motion: reduce){#sm-form{transition:none}#sm-sent.sm-in *{animation:none!important}}

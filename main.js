@@ -56,8 +56,17 @@
   var sent = document.getElementById('sm-sent');
 
   function showSent() {
-    if (form) form.hidden = true;
-    if (sent) { sent.hidden = false; sent.focus && sent.setAttribute('tabindex', '-1'); sent.focus && sent.focus(); }
+    if (!form || !sent) return;
+    var h = form.offsetHeight;
+    form.classList.add('sm-out');
+    setTimeout(function () {
+      form.hidden = true;
+      sent.style.minHeight = h + 'px';   // keep the card the same size
+      sent.hidden = false;
+      sent.classList.add('sm-in');
+      sent.setAttribute('tabindex', '-1');
+      sent.focus({ preventScroll: true });
+    }, 350);
   }
 
   if (form) {
