@@ -37,6 +37,20 @@
     window.addEventListener('resize', function () { go(current); });
   }
 
+  /* ---------- Phone menu ---------- */
+  var menu = document.getElementById('sm-menu');
+  var nav = document.getElementById('sm-nav');
+  if (menu && nav) {
+    function setMenu(open) {
+      nav.classList.toggle('open', open);
+      menu.setAttribute('aria-expanded', String(open));
+      menu.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    }
+    menu.addEventListener('click', function () { setMenu(!nav.classList.contains('open')); });
+    nav.addEventListener('click', function (e) { if (e.target.closest('a')) setMenu(false); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
+  }
+
   /* ---------- 2. Free-estimate form ---------- */
   var form = document.getElementById('sm-form');
   var sent = document.getElementById('sm-sent');

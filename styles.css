@@ -60,7 +60,30 @@ input,select,button{font:inherit}
 @media (prefers-reduced-motion: reduce){#sm-track{transition:none}}
 
 
-/* Phones: keep the header to one row (logo + estimate button) */
+/* ---- header / phone menu ---- */
+#sm-nav a{padding:6px 0}
+#sm-nav a:hover{color:#C3EB4E}
+#sm-menu{display:none}
 @media (max-width: 760px){
-  header nav[aria-label="Main"]{display:none!important}
+  .sm-head{gap:12px!important}
+  .sm-head > a:first-child{margin-right:auto}
+  .sm-head > a:first-child svg{height:26px}
+  .sm-head > a[href="#g-estimate"]{padding:0 16px!important;font-size:.875rem!important}
+  #sm-menu{display:inline-flex;flex-direction:column;justify-content:center;gap:6px;width:44px;height:44px;padding:0 11px;border:1px solid rgba(238,243,234,.3);border-radius:999px;background:transparent;cursor:pointer}
+  #sm-menu span{display:block;height:2px;background:#EEF3EA;transition:transform .25s ease}
+  #sm-menu[aria-expanded="true"] span:first-child{transform:translateY(4px) rotate(45deg)}
+  #sm-menu[aria-expanded="true"] span:last-child{transform:translateY(-4px) rotate(-45deg)}
+  #sm-nav{order:5;width:100%;display:none!important;flex-direction:column;gap:0!important;padding:8px 0 12px;border-top:1px solid rgba(238,243,234,.15);font-size:1.125rem!important}
+  #sm-nav.open{display:flex!important}
+  #sm-nav a{padding:12px 0;border-bottom:1px solid rgba(238,243,234,.08)}
+}
+@media (max-width: 400px){
+  .sm-head{gap:8px!important}
+  .sm-head > a:first-child svg{height:22px}
+  .sm-head > a[href="#g-estimate"]{padding:0 14px!important}
+}
+@media (max-width: 350px){
+  .sm-head{padding-left:12px!important;padding-right:12px!important}
+  .sm-head > a[href="#g-estimate"]{padding:0 12px!important;font-size:.8125rem!important}
+  #sm-menu{width:40px;height:40px;padding:0 10px}
 }
